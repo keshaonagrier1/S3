@@ -2,9 +2,19 @@
 # Revision number
 # Date
 AWSTemplateFormatVersion: "2010-09-09"
-Description: >
-  CloudFormation template to create a VPC named VPC-kesgri6855
-  in the us-west-2 region spanning at least three Availability Zones.
+Description: Amazon Relational Database Service (RDS) Instance Template
+Resources:
+  RdsInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      VPCSecurityGroups:
+      - <SECURITY-GROUP-ID>
+      AllocatedStorage: '5'
+      DBInstanceClass: db.t3.micro
+      DBInstanceIdentifier: playground-db
+      Engine: MySQL
+      MasterUsername: Admin
+      MasterUserPassword: CloudAcademy123!
 
 Parameters:
   EnvironmentName:
